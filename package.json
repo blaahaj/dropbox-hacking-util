@@ -13,7 +13,10 @@
     "test:unit": "c8 node --enable-source-maps --experimental-test-coverage --test './dist/spec/**/*.js'"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rachel Evans <rachel@rachelevans.org>",
+  "repository": {
+    "url": "https://github.com/blaahaj/dropbox-hacking-util"
+  },
   "license": "ISC",
   "type": "module",
   "devDependencies": {
@@ -35,5 +38,9 @@
   "dependencies": {
     "dropbox": "^10.34.0",
     "express": "^4.21.2"
-  }
+  },
+  "files": [
+    "dist/src/",
+    "CHANGELOG.md"
+  ]
 }
