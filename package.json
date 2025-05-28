@@ -33,7 +33,8 @@
     "typescript-eslint": "^8.25.0"
   },
   "exports": {
-    ".": "./dist/src/index.js"
+    ".": "./dist/src/index.js",
+    "./cli": "./dist/src/cli/index.js"
   },
   "dependencies": {
     "dropbox": "^10.34.0",
