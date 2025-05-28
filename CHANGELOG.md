@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.0.1...v1.1.0) (2025-05-28)
+
+
+### Features
+
+* add CLI section ([f100d5c](https://github.com/blaahaj/dropbox-hacking-util/commit/f100d5c177f2415f7d569994045d50893b7664e9))
+* add CLI section ([#7](https://github.com/blaahaj/dropbox-hacking-util/issues/7)) ([b2bb60c](https://github.com/blaahaj/dropbox-hacking-util/commit/b2bb60cf6c123f5be0f429af37322edfa4333920))
+
 ## [1.0.1](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.0.0...v1.0.1) (2025-04-26)
 
 
