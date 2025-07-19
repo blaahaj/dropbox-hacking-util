@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.1.0...v1.2.0) (2025-07-19)
+
+
+### Features
+
+* provide token directly via DROPBOX_TOKEN env var ([#12](https://github.com/blaahaj/dropbox-hacking-util/issues/12)) ([8de1c58](https://github.com/blaahaj/dropbox-hacking-util/commit/8de1c58010f4ae43a6ffd4257e98dc0e8bba479e))
+
+
+### Bug Fixes
+
+* avoid punycode deprecation warning ([#10](https://github.com/blaahaj/dropbox-hacking-util/issues/10)) ([e9933e5](https://github.com/blaahaj/dropbox-hacking-util/commit/e9933e5fa031a7cdaddb40e6c533d254951141db))
+
 ## [1.1.0](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.0.1...v1.1.0) (2025-05-28)
 
 
