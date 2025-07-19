@@ -1,5 +1,5 @@
 import * as child_process from "child_process";
-import { Dropbox, DropboxAuth } from "dropbox";
+import { Dropbox, DropboxAuth, type DropboxOptions } from "dropbox";
 import express from "express";
 import * as fs from "fs";
 
@@ -9,6 +9,7 @@ import { writeStderr } from "./logging.js";
 import { readFile } from "fs/promises";
 
 const envVar = "DROPBOX_CREDENTIALS_PATH";
+const tokenEnvVar = "DROPBOX_TOKEN";
 
 const port = 9988;
 const redirectUri = `http://localhost:${port}/auth`; // has to match app's config
@@ -248,10 +249,14 @@ const reauthorize = async (
   });
 };
 
-export const getDropboxClient = async (): Promise<Dropbox> => {
+export const getDropboxAuthOptions = async (): Promise<DropboxOptions> => {
+  const accessToken = process.env[tokenEnvVar];
+  if (accessToken) return { accessToken };
+
   const credentialsPath = process.env[envVar];
 
-  if (credentialsPath === undefined) throw new Error(`${envVar} is not set`);
+  if (credentialsPath === undefined)
+    throw new Error(`Auth not available, set ${envVar} or ${tokenEnvVar}`);
 
   const credentials = JSON.parse(
     await readFile(credentialsPath, { encoding: "utf-8" }),
@@ -259,5 +264,8 @@ export const getDropboxClient = async (): Promise<Dropbox> => {
 
   return await checkAndRefresh(credentials, credentialsPath)
     .then((auth) => auth ?? reauthorize(credentials, credentialsPath))
-    .then((auth) => new Dropbox({ auth }));
+    .then((auth) => ({ auth }));
 };
+
+export const getDropboxClient = async (): Promise<Dropbox> =>
+  getDropboxAuthOptions().then((opts) => new Dropbox(opts));
