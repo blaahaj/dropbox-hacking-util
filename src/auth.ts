@@ -3,6 +3,8 @@ import { Dropbox, DropboxAuth } from "dropbox";
 import express from "express";
 import * as fs from "fs";
 
+import "./avoidPunycodeDeprecationWarning.js";
+
 import { writeStderr } from "./logging.js";
 import { readFile } from "fs/promises";
 
