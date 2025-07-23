@@ -34,7 +34,8 @@
   },
   "exports": {
     ".": "./dist/src/index.js",
-    "./cli": "./dist/src/cli/index.js"
+    "./cli": "./dist/src/cli/index.js",
+    "./v2": "./dist/src/v2/index.js"
   },
   "dependencies": {
     "dropbox": "^10.34.0",
