@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.2.0...v1.3.0) (2025-07-23)
+
+
+### Features
+
+* a v2 of the error / retry stuff ([#13](https://github.com/blaahaj/dropbox-hacking-util/issues/13)) ([de22c01](https://github.com/blaahaj/dropbox-hacking-util/commit/de22c016e787b0fc11aa64019a8482e269ade301))
+
 ## [1.2.0](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.1.0...v1.2.0) (2025-07-19)
 
 
