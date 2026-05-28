@@ -25,6 +25,7 @@
     "@types/eslint__js": "8",
     "@types/express": "^5.0.0",
     "@types/node": "^25.9.1",
+    "@types/write-file-atomic": "^4.0.3",
     "c8": "^11.0.0",
     "concurrently": "^9.1.2",
     "eslint": "^9.21.0",
@@ -39,7 +40,8 @@
   },
   "dependencies": {
     "dropbox": "^10.34.0",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "write-file-atomic": "^7.0.0"
   },
   "files": [
     "dist/src/",

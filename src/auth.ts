@@ -1,7 +1,7 @@
 import * as child_process from "child_process";
 import { Dropbox, DropboxAuth, type DropboxOptions } from "dropbox";
 import express from "express";
-import * as fs from "fs";
+import writeFileAtomic from "write-file-atomic";
 
 import { writeStderr } from "./logging.js";
 import { readFile } from "fs/promises";
@@ -103,14 +103,11 @@ const updateAuthFromCode = async (
   auth.setRefreshToken(result_2.refresh_token);
 };
 
-let saveSeq = 0;
-
 const saveUserCredentials = async (
   credentials: any, // eslint-disable-line @typescript-eslint/no-explicit-any
   auth: DropboxAuth,
   credentialsPath: string,
 ): Promise<void> => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const newPayload = {
     ...credentials,
     user_oauth_config: {
@@ -120,18 +117,14 @@ const saveUserCredentials = async (
     },
   };
 
-  const tmpFile = credentialsPath + `.tmp.${saveSeq++}`;
-
-  await fs.promises.writeFile(
-    tmpFile,
+  await writeFileAtomic(
+    credentialsPath,
     JSON.stringify(newPayload, null, 2) + "\n",
     {
       encoding: "utf-8",
       mode: 384,
     },
   );
-
-  await fs.promises.rename(tmpFile, credentialsPath);
 };
 
 type SavedCredentials = {

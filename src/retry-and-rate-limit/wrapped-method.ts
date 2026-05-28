@@ -64,7 +64,7 @@ export default class WrappedMethod<M extends keyof Dropbox> {
         if (copyOfArgs.length > 0)
           copyOfArgs[0] = WrappedMethod.cloneIfStruct(copyOfArgs[0]);
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return (this.real as any).apply(this.dbx, copyOfArgs as any);
       };
       this.debugTagged(callId, 0, "wrapped function called with", args);

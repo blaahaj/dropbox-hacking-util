@@ -239,12 +239,9 @@ export default class RetryingPromise<M extends keyof Dropbox> {
     // 2022-01-23 11:17:49.377210500     '    at processTicksAndRejections (node:internal/process/task_queues:83:21)'
     // 2022-01-23 11:17:49.377210500 }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     this.debug(JSON.stringify({ error }));
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
     this.debug(JSON.stringify({ error_message: error.message }));
     this.debug(JSON.stringify({ interpolate: `${error}` }));
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     this.debug(JSON.stringify({ toString: error.toString() }));
 
     const errorString = `${error}`;
