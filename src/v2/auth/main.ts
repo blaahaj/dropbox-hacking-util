@@ -1,7 +1,5 @@
 import { Dropbox, DropboxAuth, type DropboxOptions } from "dropbox";
 
-import "../../avoidPunycodeDeprecationWarning.js";
-
 import { CredentialsCache, type SavedCredentials } from "./credentialsCache.js";
 import { runServer } from "./OAuthServer.js";
 
