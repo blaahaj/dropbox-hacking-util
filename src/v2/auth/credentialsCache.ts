@@ -1,5 +1,6 @@
 import type { DropboxAuth } from "dropbox";
-import { readFile, rename, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
+import writeFileAtomic from "write-file-atomic";
 
 export interface SavedCredentials {
   access_token: string;
@@ -17,7 +18,6 @@ export interface SavedCredentials {
 }
 
 export class CredentialsCache {
-  private saveSeq = 0;
   constructor(private readonly credentialsPath: string) {}
 
   public async load(): Promise<SavedCredentials> {
@@ -39,13 +39,13 @@ export class CredentialsCache {
       },
     };
 
-    const tmpFile = this.credentialsPath + `.tmp.${this.saveSeq++}`;
-
-    await writeFile(tmpFile, JSON.stringify(newPayload, null, 2) + "\n", {
-      encoding: "utf-8",
-      mode: 0o600,
-    });
-
-    await rename(tmpFile, this.credentialsPath);
+    await writeFileAtomic(
+      this.credentialsPath,
+      JSON.stringify(newPayload, null, 2) + "\n",
+      {
+        encoding: "utf-8",
+        mode: 0o600,
+      },
+    );
   }
 }
