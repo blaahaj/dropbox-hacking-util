@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.3.1...v1.3.2) (2026-07-21)
+
+
+### Bug Fixes
+
+* grant OIDC permissions ([#19](https://github.com/blaahaj/dropbox-hacking-util/issues/19)) ([fd069d3](https://github.com/blaahaj/dropbox-hacking-util/commit/fd069d37bc8248ccdb5c47d04a351388abefc86c))
+
 ## [1.3.1](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.3.0...v1.3.1) (2026-07-21)
 
 
