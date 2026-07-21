@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.3.0...v1.3.1) (2026-07-21)
+
+
+### Bug Fixes
+
+* package upgrades ([#17](https://github.com/blaahaj/dropbox-hacking-util/issues/17)) ([21518b4](https://github.com/blaahaj/dropbox-hacking-util/commit/21518b4cf9b4d45c65b76d4115b3be5bf04decf0))
+
 ## [1.3.0](https://github.com/blaahaj/dropbox-hacking-util/compare/v1.2.0...v1.3.0) (2025-07-23)
 
 
