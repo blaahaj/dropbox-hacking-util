@@ -20,18 +20,18 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "@commitlint/config-conventional": "^19.8.0",
-    "@eslint/js": "^9.21.0",
-    "@types/eslint__js": "8",
-    "@types/express": "^5.0.0",
-    "@types/node": "^25.9.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/js": "^9.39.5",
+    "@types/eslint__js": "^8.42.3",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.9.5",
     "@types/write-file-atomic": "^4.0.3",
     "c8": "^11.0.0",
-    "concurrently": "^9.1.2",
-    "eslint": "^9.21.0",
-    "prettier": "^3.4.2",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.25.0"
+    "concurrently": "^9.2.4",
+    "eslint": "^9.39.5",
+    "prettier": "^3.8.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.65.0"
   },
   "exports": {
     ".": "./dist/src/index.js",
@@ -39,9 +39,9 @@
     "./v2": "./dist/src/v2/index.js"
   },
   "dependencies": {
-    "dropbox": "^10.34.0",
-    "express": "^4.21.2",
-    "write-file-atomic": "^7.0.0"
+    "dropbox": "^10.37.1 >=10.36.0",
+    "express": "^5.2.1",
+    "write-file-atomic": "^8.0.0"
   },
   "files": [
     "dist/src/",

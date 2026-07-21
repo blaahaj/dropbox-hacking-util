@@ -1,3 +1,5 @@
 ---
-overrides:
-  yargs: "~18.0.0" # https://github.com/yargs/yargs/issues/2509
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - "@blaahaj/*"
+trustLockfile: true

@@ -146,8 +146,7 @@ const checkAndRefreshAccessToken = async (auth: DropboxAuth): Promise<void> => {
   let haveWarned = false;
   for (;;) {
     try {
-      // Incorrect signature in SDK
-      await (auth.checkAndRefreshAccessToken() as unknown as Promise<void>);
+      await auth.checkAndRefreshAccessToken();
       break;
     } catch (error) {
       if (error instanceof Error && "code" in error) {
