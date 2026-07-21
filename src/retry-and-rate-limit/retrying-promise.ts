@@ -134,14 +134,12 @@ export default class RetryingPromise<M extends keyof Dropbox> {
     // {"name":"DropboxResponseError","status":409,"headers":{},"error":{"error_summary":"from_write/too_many_write_operations/","error":{".tag":"from_write","from_write":{".tag":"too_many_write_operations"}}}}
 
     // https://www.dropbox.com/developers/documentation/http/documentation "Errors by status code"
-    if (
-      !(
-        error !== null &&
-        typeof error === "object" &&
-        "status" in error &&
-        "error" in error
-      )
-    )
+    if (!(
+      error !== null &&
+      typeof error === "object" &&
+      "status" in error &&
+      "error" in error
+    ))
       return false;
     if (error?.status !== 409 && error?.status !== 429) return false;
 
