@@ -22,12 +22,12 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "format": "prettier --write .",
-    "test": "concurrently --group pnpm:test:*",
-    "test:lint": "eslint",
+    "format": "std-fix-npmPkgJsonLint && eslint --fix --fix-type layout src test && prettier --write --list-different .",
+    "test": "concurrently --group=true pnpm:test:\\*",
+    "test:format": "prettier --check .",
+    "test:lint": "eslint src test",
     "test:package-json": "npmPkgJsonLint .",
-    "test:prettier": "prettier --check .",
-    "test:unit": "c8 node --enable-source-maps --experimental-test-coverage --test './dist/spec/**/*.js'"
+    "test:unit": "c8 node --test --enable-source-maps './dist/test/*.test.js'"
   },
   "dependencies": {
     "dropbox": "^10.37.1 >=10.36.0",
