@@ -13,11 +13,11 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Install asdf & tools
-        uses: asdf-vm/actions/install@v3
+        uses: asdf-vm/actions/install@v4
         with:
           asdf_branch: v0.15.0 # the action has noisy warnings for >= 0.16.0
       - name: Install
@@ -35,7 +35,7 @@ jobs:
         continue-on-error: true
         id: test
       - name: Archive results (data)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: results-data
           path: |
