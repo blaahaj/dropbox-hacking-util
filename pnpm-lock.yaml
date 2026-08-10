@@ -54,6 +54,10 @@ importers:
       typescript-eslint:
         specifier: ^8.65.0
         version: 8.65.0(eslint@9.39.5)(typescript@5.9.3)
+    optionalDependencies:
+      yargs:
+        specifier: '>=17.7.3'
+        version: 17.7.3
 
 packages:
 
