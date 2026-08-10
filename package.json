@@ -43,6 +43,9 @@
     "express": "^5.2.1",
     "write-file-atomic": "^8.0.0"
   },
+  "optionalDependencies": {
+    "yargs": ">=17.7.3"
+  },
   "files": [
     "dist/src/",
     "CHANGELOG.md"
