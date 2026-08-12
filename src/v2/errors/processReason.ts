@@ -1,9 +1,9 @@
-import { isSystemError } from "./systemError.js";
-import { processSystemError } from "./processSystemError.js";
 import {
   isDropboxResponseError,
   processDropboxResponseError,
 } from "./dropboxResponseError.js";
+import { processSystemError } from "./processSystemError.js";
+import { isSystemError } from "./systemError.js";
 
 export const processReason = (reason: unknown) => {
   if (!(reason instanceof Error))

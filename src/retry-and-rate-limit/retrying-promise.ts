@@ -1,6 +1,6 @@
-import { Dropbox, type auth } from "dropbox";
-// import { auth } from "dropbox/types/dropbox_types";
+import { type auth, Dropbox } from "dropbox";
 
+// import { auth } from "dropbox/types/dropbox_types";
 import Waiter from "./waiter.js";
 import WrappedMethod from "./wrapped-method.js";
 
