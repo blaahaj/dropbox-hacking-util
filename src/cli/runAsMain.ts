@@ -1,9 +1,9 @@
 import {
-  getDropboxClient,
   getGlobalOptions,
   GlobalOptionsSingleton,
   writeStderr,
 } from "@blaahaj/dropbox-hacking-util";
+import { getDropboxClient } from "@blaahaj/dropbox-hacking-util/v2";
 
 import { Operation } from "./types.js";
 
