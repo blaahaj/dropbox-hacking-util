@@ -1,5 +1,5 @@
-import type { DropboxResponseError } from "dropbox";
 import type * as dbx from "dropbox";
+import type { DropboxResponseError } from "dropbox";
 
 export const isDropboxResponseError = <T>(
   candidate: unknown,

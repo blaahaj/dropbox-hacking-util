@@ -1,10 +1,10 @@
 import * as child_process from "child_process";
 import { Dropbox, DropboxAuth, type DropboxOptions } from "dropbox";
 import express from "express";
+import { readFile } from "fs/promises";
 import writeFileAtomic from "write-file-atomic";
 
 import { writeStderr } from "./logging.js";
-import { readFile } from "fs/promises";
 
 const envVar = "DROPBOX_CREDENTIALS_PATH";
 const tokenEnvVar = "DROPBOX_TOKEN";
