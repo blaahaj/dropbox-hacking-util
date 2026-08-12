@@ -2,30 +2,34 @@ import { GlobalOptionsSingleton } from "../global-options/index.js";
 
 type Tag = string | (() => string);
 
-type Entry<T> = {
+type Entry<L> = {
   id: number;
-  makePromise: () => Promise<T>;
-  resolve: (value: T | PromiseLike<T>) => void;
+  makePromise: () => Promise<L>;
+  resolve: <T extends L = L>(value: T | PromiseLike<T>) => void;
   reject: (reason?: any) => void; // eslint-disable-line @typescript-eslint/no-explicit-any
   tag: Tag;
 };
 
-export type PromiseLimiter<T> = {
-  submit: (makePromise: () => Promise<T>, tag: Tag) => Promise<T>;
+export type PromiseLimiter<L> = {
+  submit: <T extends L = L>(
+    makePromise: () => Promise<T>,
+    tag: Tag,
+  ) => Promise<T>;
 };
 
 const tagToString = (tag: Tag) => (typeof tag === "string" ? tag : tag());
 
-export const makePromiseLimiter = <T>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const makePromiseLimiter = <L = any>(
   size: number,
   name: string,
-): PromiseLimiter<T> => {
+): PromiseLimiter<L> => {
   let free = size;
-  const queue: Entry<T>[] = [];
+  const queue: Entry<L>[] = [];
 
-  const inFlight = new Set<Entry<T>>();
+  const inFlight: Record<number, Entry<L>> = {};
   const describe = () =>
-    [...inFlight]
+    Object.values(inFlight)
       .map((e) => e.id)
       .sort()
       .join(",");
@@ -37,7 +41,7 @@ export const makePromiseLimiter = <T>(
 
       --free;
       const { id, makePromise, resolve, reject, tag } = entry;
-      inFlight.add(entry);
+      inFlight[id] = entry;
       if (GlobalOptionsSingleton.get()?.debugLimiter)
         console.debug(
           `${name} start job #${id}/${nextId} ${tagToString(
@@ -46,7 +50,7 @@ export const makePromiseLimiter = <T>(
         );
       makePromise()
         .finally(() => {
-          inFlight.delete(entry);
+          delete inFlight[id];
           if (GlobalOptionsSingleton.get()?.debugLimiter)
             console.debug(
               `${name} end job #${id}/${nextId} ${tagToString(
@@ -62,12 +66,15 @@ export const makePromiseLimiter = <T>(
 
   let nextId = 0;
 
-  const submit = (makePromise: () => Promise<T>, tag: Tag): Promise<T> => {
+  const submit = <T extends L = L>(
+    makePromise: () => Promise<T>,
+    tag: Tag,
+  ): Promise<T> => {
     const id = nextId++;
     if (GlobalOptionsSingleton.get()?.debugLimiter)
       console.debug(`${name} submit job #${id} ${tagToString(tag)}`);
     return new Promise((resolve, reject) => {
-      queue.push({ id, makePromise, resolve, reject, tag });
+      queue.push({ id, makePromise, resolve, reject, tag } as Entry<T>);
       tryStart();
     });
   };
