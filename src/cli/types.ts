@@ -1,4 +1,8 @@
-import { DropboxProvider, GlobalOptions } from "@blaahaj/dropbox-hacking-util";
+import type { Dropbox } from "dropbox";
+
+import { GlobalOptions } from "../main/index.js";
+
+export type DropboxProvider = () => Promise<Dropbox>;
 
 export type Handler = (
   dbxp: DropboxProvider,

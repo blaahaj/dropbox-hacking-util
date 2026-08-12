@@ -1,7 +1,9 @@
-import express from "express";
 import child_process from "node:child_process";
+
 import type { DropboxAuth } from "dropbox";
-import { writeStderr } from "../../logging.js";
+import express from "express";
+
+import { writeStderr } from "../../main/logging.js";
 
 export const port = 9988;
 export const redirectUri = `http://localhost:${port}/auth`; // has to match app's config
@@ -69,9 +71,16 @@ export const runServer = async (appAuth: DropboxAuth): Promise<DropboxAuth> =>
         `${startUrl}\n`,
     );
 
-    child_process.spawn("open", [startUrl], {
-      stdio: ["ignore", "ignore", "ignore"],
-    });
+    setTimeout(() => {
+      server.close();
+      reject(new Error("Timeout waiting for authorization"));
+    }, 60_000);
+
+    if (process.stdin.isTTY) {
+      child_process.spawn("open", [startUrl], {
+        stdio: ["ignore", "ignore", "ignore"],
+      });
+    }
   });
 
 const updateAuthFromCode = async (

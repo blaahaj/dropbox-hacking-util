@@ -1,5 +1,6 @@
-import type { DropboxAuth } from "dropbox";
 import { readFile } from "node:fs/promises";
+
+import type { DropboxAuth } from "dropbox";
 import writeFileAtomic from "write-file-atomic";
 
 export interface SavedCredentials {

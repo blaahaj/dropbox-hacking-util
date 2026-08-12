@@ -10,9 +10,9 @@
     "CHANGELOG.md"
   ],
   "exports": {
-    ".": "./dist/src/index.js",
     "./cli": "./dist/src/cli/index.js",
-    "./v2": "./dist/src/v2/index.js"
+    "./dbx": "./dist/src/dbx/index.js",
+    "./main": "./dist/src/main/index.js"
   },
   "main": "index.js",
   "repository": {
@@ -30,6 +30,7 @@
     "test:unit": "c8 node --test --enable-source-maps './dist/test/*.test.js'"
   },
   "dependencies": {
+    "@blaahaj/gotcha": "^2.0.0",
     "dropbox": "^10.37.1 >=10.36.0",
     "express": "^5.2.1",
     "write-file-atomic": "^8.0.0"
@@ -40,11 +41,11 @@
     "@eslint/js": "^9.39.5",
     "@types/eslint__js": "^8.42.3",
     "@types/express": "^5.0.6",
-    "@types/node": "^25.9.5",
+    "@types/node": "^26.2.0",
     "@types/write-file-atomic": "^4.0.3",
     "c8": "^11.0.0",
     "concurrently": "^9.2.4",
-    "eslint": "^9.39.5",
+    "eslint": "^10.5.0",
     "npm-package-json-lint": "^10.4.1",
     "npm-package-json-lint-config-default": "^9.0.1",
     "prettier": "^3.8.4",
