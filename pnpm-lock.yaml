@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@blaahaj/gotcha':
+        specifier: ^2.1.0
+        version: 2.1.0
       dropbox:
-        specifier: ^10.37.1 >=10.36.0
-        version: 10.37.1
+        specifier: ^10.45.0
+        version: 10.45.0
       express:
         specifier: ^5.2.1
         version: 5.2.1(supports-color@8.1.1)
@@ -81,6 +84,9 @@ packages:
   '@bcoe/v8-coverage@1.0.2':
     resolution: {integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==}
     engines: {node: '>=18'}
+
+  '@blaahaj/gotcha@2.1.0':
+    resolution: {integrity: sha512-8g+H9Ik6n0h1ro0w909VrAgvBkkG9Zt79pa3XMqav+dMsPuORQWlR843n/lwmt4JI8GcXXqQ3liW7f0losPMUw==}
 
   '@blaahaj/std@1.0.3':
     resolution: {integrity: sha512-YOyVj+eLuPGsY19oDgjkilaTRTH0A6v2PQa7y63GgrQQn1a2wsCv6ignSLEjl4TkJmKgQvzoBFrlRbq1RyaRyw==}
@@ -489,8 +495,8 @@ packages:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}
     engines: {node: '>=8'}
 
-  dropbox@10.37.1:
-    resolution: {integrity: sha512-U5CLy21IAasaxUq9f5AxUd1ow+eVA1iDHlYgF9ZSW1qCi7/l56Y5HnrXZElprqSU32N25z3o0mCBoo6uBvGkbg==}
+  dropbox@10.45.0:
+    resolution: {integrity: sha512-IPyV9MDSfUVq0zpKhEqBbKmlAl94gGAnNgt8uD9FDKUiTX0PSxCzf2FZ9H0P417fCl3iHnz8J/5jhAEsfXFqrg==}
     engines: {node: '>=22'}
 
   dunder-proto@1.0.1:
@@ -1366,6 +1372,8 @@ snapshots:
 
   '@bcoe/v8-coverage@1.0.2': {}
 
+  '@blaahaj/gotcha@2.1.0': {}
+
   '@blaahaj/std@1.0.3(@typescript-eslint/eslint-plugin@8.65.0(@typescript-eslint/parser@8.65.0(eslint@10.8.1(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@10.8.1(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@10.8.1(supports-color@8.1.1))':
     dependencies:
       eslint-plugin-simple-import-sort: 13.0.0(eslint@10.8.1(supports-color@8.1.1))
@@ -1808,7 +1816,7 @@ snapshots:
     dependencies:
       is-obj: 2.0.0
 
-  dropbox@10.37.1: {}
+  dropbox@10.45.0: {}
 
   dunder-proto@1.0.1:
     dependencies:

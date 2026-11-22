@@ -1,5 +1,7 @@
-import { GlobalOptions } from "@blaahaj/dropbox-hacking-util";
-import type { DropboxProvider } from "@blaahaj/dropbox-hacking-util/v2";
+import {
+  type DropboxProvider,
+  GlobalOptions,
+} from "@blaahaj/dropbox-hacking-util";
 
 export type Handler = (
   dbxp: DropboxProvider,

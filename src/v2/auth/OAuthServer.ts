@@ -1,5 +1,3 @@
-import child_process from "node:child_process";
-
 import type { DropboxAuth } from "dropbox";
 import express from "express";
 
@@ -70,10 +68,6 @@ export const runServer = async (appAuth: DropboxAuth): Promise<DropboxAuth> =>
       `To authorize this application to use your Dropbox, please go to the following url:\n` +
         `${startUrl}\n`,
     );
-
-    child_process.spawn("open", [startUrl], {
-      stdio: ["ignore", "ignore", "ignore"],
-    });
   });
 
 const updateAuthFromCode = async (
