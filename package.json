@@ -11,8 +11,7 @@
   ],
   "exports": {
     ".": "./dist/src/index.js",
-    "./cli": "./dist/src/cli/index.js",
-    "./v2": "./dist/src/v2/index.js"
+    "./cli": "./dist/src/cli/index.js"
   },
   "main": "index.js",
   "repository": {
@@ -30,7 +29,8 @@
     "test:unit": "c8 node --test --enable-source-maps './dist/test/*.test.js'"
   },
   "dependencies": {
-    "dropbox": "^10.37.1 >=10.36.0",
+    "@blaahaj/gotcha": "^2.1.0",
+    "dropbox": "^10.45.0",
     "express": "^5.2.1",
     "write-file-atomic": "^8.0.0"
   },
